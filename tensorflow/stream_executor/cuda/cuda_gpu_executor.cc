@@ -1076,8 +1076,8 @@ DeviceDescription *CUDAExecutor::PopulateDeviceDescription() const {
     builder.set_numa_node(numa_node);
   }
 
-  CUdevprop prop;
-  if (CUDADriver::GetDeviceProperties(&prop, device_ordinal_)) {
+  cudaDeviceProp prop;
+  if (cudaGetDeviceProperties(&prop, device_ordinal_)) {
     builder.set_threads_per_block_limit(prop.maxThreadsPerBlock);
 
     ThreadDim thread_dim_limit;
