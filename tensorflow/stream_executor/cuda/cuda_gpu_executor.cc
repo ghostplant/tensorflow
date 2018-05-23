@@ -53,6 +53,8 @@ limitations under the License.
 #include "tensorflow/stream_executor/timer.h"
 #include "tensorflow/stream_executor/lib/numbers.h"
 
+#include "tensorflow/core/util/cuda_launch_config.h"
+
 #ifdef PLATFORMS_GPUS_CUDA_DYNAMIC_LIBCUDA_DYNAMIC_LIBCUDA_H_
 #error \
     "No driver calls in this file, wrap driver functionality in cuda_driver.cc."
