@@ -26,6 +26,7 @@ limitations under the License.
 #include "tensorflow/stream_executor/lib/statusor.h"
 #include "tensorflow/stream_executor/platform/port.h"
 #include "cuda/include/cuda.h"
+#include "cuda/include/cuda_runtime_api.h"
 
 namespace stream_executor {
 namespace cuda {
@@ -404,7 +405,7 @@ class CUDADriver {
   // GetDeviceAttribute
   //
   // http://docs.nvidia.com/cuda/cuda-driver-api/group__CUDA__DEVICE__DEPRECATED.html#group__CUDA__DEVICE__DEPRECATED_1g65a5b4e25186bd257df80b98c98cffe6
-  static bool GetDeviceProperties(CUdevprop *device_properties,
+  static bool GetDeviceProperties(cudaDeviceProp *device_properties,
                                   int device_ordinal);
 
   // Gets a specific integer-valued property about the given device.

@@ -1459,10 +1459,10 @@ static port::StatusOr<T> GetSimpleAttribute(CUdevice device,
   return true;
 }
 
-/* static */ bool CUDADriver::GetDeviceProperties(CUdevprop *device_properties,
+/* static */ bool CUDADriver::GetDeviceProperties(cudaDeviceProp *device_properties,
                                                   int device_ordinal) {
-  CUresult res = cuDeviceGetProperties(device_properties, device_ordinal);
-  if (res != CUDA_SUCCESS) {
+  cudaError_t res = cudaGetDeviceProperties(device_properties, device_ordinal);
+  if (res != cudaSuccess) {
     LOG(ERROR) << "failed to query device properties: " << ToString(res);
     return false;
   }
